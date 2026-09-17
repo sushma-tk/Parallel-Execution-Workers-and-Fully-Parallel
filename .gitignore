@@ -6,3 +6,12 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+# Auth state
+state.json
+
+# Editor
+.vscode/
+
+# OS
+.DS_Store
