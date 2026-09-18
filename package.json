@@ -2,14 +2,28 @@
   "name": "sample",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/sushma-tk/Playwright-Learning#readme",
+  "bugs": {
+    "url": "https://github.com/sushma-tk/Playwright-Learning/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sushma-tk/Playwright-Learning.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "test": "npx playwright test tests/WebAPIpart1Update.spec.js --headed"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.2.0"
