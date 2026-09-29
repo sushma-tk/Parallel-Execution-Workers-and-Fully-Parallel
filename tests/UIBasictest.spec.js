@@ -1,5 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
+// test.describe.configure({mode : 'parallel'})
 test('Browser context test', async ({browser})=>
 {
     const context = await browser.newContext();

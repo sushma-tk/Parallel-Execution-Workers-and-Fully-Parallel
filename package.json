@@ -19,13 +19,21 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npx playwright test tests/WebAPIpart1Update.spec.js --headed"
+    "Regression": "npx playwright test",
+    "apiTests" : "npx playwright test --grep @API",
+    "ClientAppChromeTest" : "npx playwright test ClientAppPO.spec.js --project=chromium"
   },
   "dependencies": {
     "exceljs": "^4.4.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0"
+    "@types/node": "^26.2.0",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.12.2"
   }
 }
+
+
+
+

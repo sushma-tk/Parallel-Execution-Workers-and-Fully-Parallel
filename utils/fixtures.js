@@ -23,7 +23,7 @@
 
 const base = require("@playwright/test");
 
-const {APiUtils} = require("./APIUtils.js");  // we have to import this file because we are using this class in this file.
+const {APiUtils} = require("../utils/APiUtils");  // we have to import this file because we are using this class in this file.
 const {request} = require('@playwright/test');
 const loginPayLoad = {userEmail:"sushma.tacholi@gmail.com",userPassword:"Sushma@1234"};
 const orderPayLoad = {orders:[{country:"India",productOrderedId:"6960eac0c941646b7a8b3e68"}]};

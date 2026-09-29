@@ -70,7 +70,7 @@ test("Screenshot & visual comparison", async ({page})=>{
 
 
 // visual comparison
-test.only("Visual comparison", async ({page})=>{
+test("Visual comparison", async ({page})=>{
     await page.goto("https://www.nbcnews.com/");
     expect(await page.screenshot()).toMatchSnapshot("nbcnews.png");
     // when you run it for the first time, it will create a file called nbcnews.png in the snapshots folder.
