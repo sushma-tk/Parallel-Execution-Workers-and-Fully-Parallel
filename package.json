@@ -20,8 +20,8 @@
   },
   "scripts": {
     "Regression": "npx playwright test",
-    "apiTests" : "npx playwright test --grep @API",
-    "ClientAppChromeTest" : "npx playwright test ClientAppPO.spec.js --project=chromium"
+    "apiTests": "npx playwright test --grep @API",
+    "ClientAppChromeTest": "npx playwright test ClientAppPO.spec.js --project=chromium"
   },
   "dependencies": {
     "exceljs": "^4.4.0"
@@ -30,10 +30,7 @@
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.2.0",
     "allure-commandline": "^2.46.1",
-    "allure-playwright": "^3.12.2"
+    "allure-playwright": "^3.12.2",
+    "dotenv": "^18.0.8"
   }
 }
-
-
-
-

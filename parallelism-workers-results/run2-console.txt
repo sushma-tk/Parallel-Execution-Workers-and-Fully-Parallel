@@ -1,0 +1,82 @@
+
+Running 14 tests using 4 workers
+
+START | test2 | worker 2 | 11:33:04 PM
+START | test2 | worker 3 | 11:33:04 PM
+START | Screenshot & visual comparison | worker 0 | 11:33:05 PM
+START | Visual comparison | worker 1 | 11:33:05 PM
+ADIDAS ORIGINAL
+[ 'ADIDAS ORIGINAL', 'ZARA COAT 3', 'iphone 13 pro', 'qwerty' ]
+END   | test2 | worker 2 | 11:33:12 PM
+END   | Visual comparison | worker 1 | 11:33:12 PM
+  ✓   1 tests/ClientApp.spec.js:4:1 › test2 (7.2s)
+START | Special  | worker 2 | 11:33:12 PM
+  ✓   2 tests/AutomationPractice.spec.js:21:1 › Visual comparison (7.3s)
+END   | test2 | worker 3 | 11:33:14 PM
+  ✓   3 tests/ClientAppOtherWay.spec.js:3:1 › test2 (9.3s)
+START | Browser context test | worker 3 | 11:33:14 PM
+END   | Special  | worker 2 | 11:33:15 PM
+  ✓   5 tests/ecomApp.spec.js:3:1 › Special  (4.4s)
+START | page test | worker 2 | 11:33:16 PM
+END   | Screenshot & visual comparison | worker 0 | 11:33:17 PM
+  ✓   4 tests/AutomationPractice.spec.js:4:1 › Screenshot & visual comparison (12.1s)
+START | UI controls | worker 0 | 11:33:17 PM
+LoginPage Practise | Rahul Shetty Academy
+Google
+END   | page test | worker 2 | 11:33:17 PM
+  ✓   8 tests/UIBasictest.spec.js:39:1 › page test (979ms)
+START | Child window test | worker 2 | 11:33:17 PM
+Incorrect username/password.
+[]
+END   | Browser context test | worker 3 | 11:33:19 PM
+  ✓   7 tests/UIBasictest.spec.js:4:1 › Browser context test (5.5s)
+END   | UI controls | worker 0 | 11:33:20 PM
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTk3NjU2ZTIxMDU0YmE0NjUwNGU0MjAiLCJ1c2VyRW1haWwiOiJzdXNobWEudGFjaG9saUBnbWFpbC5jb20iLCJ1c2VyTW9iaWxlIjo0MDg1MDgxMzU5LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzkyNjUwODAwLCJleHAiOjE4MjQyMDg0MDB9.nIuDiF0rE10OaEv7BqjEUMMoJOXtwLRK_VjTQpZpoTM
+  ✓   9 tests/UIBasictest.spec.js:50:1 › UI controls (3.6s)
+{
+  orders: [ '6ad9ae30a90a419aa8208bb5' ],
+  productOrderId: [ '6960eac0c941646b7a8b3e68' ],
+  message: 'Order Placed Successfully'
+}
+START | Fixtures demo | worker 1 | 11:33:20 PM
+*****
+{
+  orders: [ '6ad9ae30a90a419aa8208bbc' ],
+  productOrderId: [ '6960eac0c941646b7a8b3e68' ],
+  message: 'Order Placed Successfully'
+}
+6ad9ae30a90a419aa8208bbc
+START | test | worker 3 | 11:33:21 PM
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTk3NjU2ZTIxMDU0YmE0NjUwNGU0MjAiLCJ1c2VyRW1haWwiOiJzdXNobWEudGFjaG9saUBnbWFpbC5jb20iLCJ1c2VyTW9iaWxlIjo0MDg1MDgxMzU5LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzkyNjUwODAxLCJleHAiOjE4MjQyMDg0MDF9.qNrhx9GYOjhEtHF9nRw8CZJR-PG5o1LnUk0l0yRSVz0
+ZARA COAT 3
+END   | Fixtures demo | worker 1 | 11:33:21 PM
+  ✓   6 tests/FixturesDemo.spec.js:7:1 › Fixtures demo (9.6s)
+{
+  orders: [ '6ad9ae31a90a419aa8208bcd' ],
+  productOrderId: [ '6960eac0c941646b7a8b3e68' ],
+  message: 'Order Placed Successfully'
+}
+START | @API Place the order | worker 0 | 11:33:22 PM
+Please email us at mentor@rahulshettyacademy.com with below template to receive response 
+rahulshettyacademy.com
+END   | Child window test | worker 2 | 11:33:22 PM
+  ✓  10 tests/UIBasictest.spec.js:92:1 › Child window test (4.9s)
+END   | test | worker 3 | 11:33:25 PM
+  ✓  11 tests/webAPIpart1.spec.js:40:1 › test (7.9s)
+END   | @API Place the order | worker 0 | 11:33:26 PM
+  ✓  12 tests/WebAPIpart1Update.spec.js:18:1 › @API Place the order (4.8s)
+START | test | worker 1 | 11:33:28 PM
+START | test2 | worker 2 | 11:33:31 PM
+4
+END   | test2 | worker 2 | 11:33:36 PM
+  ✓  14 tests/WebAPIpart2.spec.js:114:1 › test2 (5.0s)
+ | 6ad9ae44a90a419aa8208c43 | 
+END   | test | worker 1 | 11:33:41 PM
+  ✓  13 tests/WebAPIpart2.spec.js:26:1 › test (13.2s)
+
+  14 passed (37.3s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

@@ -1,31 +1,8 @@
-// syntax for fixtures
-// const base = require("@playwright/test");
-
-// exports.customtest = base.test.extend({    
-//     fixture1 : async ({browser}, use)=> {
-//         //
-//     },
-//     fixture2 : async ({browser}, use)=> {
-//         //
-//     }
-// })               
-
-
-// exports.customtest = base.test.extend({    
-//     fixture1 : async ({browser}, use)=> {
-//         //    (setup code)
-//         await use(page);  
-//    },   //    (teardown code)  -> this is executed after the test is completed. so we can write teardown code here.
-//     }
-// })  
-
-
-
 const base = require("@playwright/test");
 
 const {APiUtils} = require("../utils/APiUtils");  // we have to import this file because we are using this class in this file.
 const {request} = require('@playwright/test');
-const loginPayLoad = {userEmail:"sushma.tacholi@gmail.com",userPassword:"Sushma@1234"};
+const loginPayLoad = {userEmail:process.env.USER_EMAIL,userPassword:process.env.USER_PASSWORD};
 const orderPayLoad = {orders:[{country:"India",productOrderedId:"6960eac0c941646b7a8b3e68"}]};
 
 exports.customtest = base.test.extend({                          // exports. will make this available all over.
@@ -33,9 +10,9 @@ exports.customtest = base.test.extend({                          // exports. wil
         const context = await browser.newContext();
         const page= await context.newPage();
 
-        await page.goto("https://rahulshettyacademy.com/client/#/auth/login");
-        await page.locator('#userEmail').fill("sushma.tacholi@gmail.com");
-        await page.locator('#userPassword').fill("Sushma@1234");
+        await page.goto("/client/#/auth/login");
+        await page.locator('#userEmail').fill(process.env.USER_EMAIL);
+        await page.locator('#userPassword').fill(process.env.USER_PASSWORD);
         await page.locator('#login').click();
         await page.waitForLoadState('networkidle');
         await use(page);  // whatever wrappedd in use() will be send to authenticatedpage. 
@@ -44,7 +21,8 @@ exports.customtest = base.test.extend({                          // exports. wil
 
     },
     createorder : async ({}, use)=> {
-        const apiContext = await request.newContext();
+        // const apiContext = await request.newContext();
+        const apiContext = await request.newContext({ baseURL: process.env.CLIENT_URL });
         const apiUtils = new APiUtils(apiContext,loginPayLoad);
         const response =  await apiUtils.createOrder(orderPayLoad);
         await use(response);  // whatever wrappedd in use() will be send to createorder.
@@ -55,4 +33,3 @@ exports.customtest = base.test.extend({                          // exports. wil
     }
     
 })
-

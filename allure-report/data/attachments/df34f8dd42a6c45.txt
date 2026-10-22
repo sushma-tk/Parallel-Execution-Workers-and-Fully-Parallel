@@ -1,7 +1,0 @@
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2YTk3NjU2ZTIxMDU0YmE0NjUwNGU0MjAiLCJ1c2VyRW1haWwiOiJzdXNobWEudGFjaG9saUBnbWFpbC5jb20iLCJ1c2VyTW9iaWxlIjo0MDg1MDgxMzU5LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzkwMjc2NTg4LCJleHAiOjE4MjE4MzQxODh9.ZTcu87qUIas9avjhqV5jAM-ZH1WNtjX7iYZmqcEqeQo
-{
-  orders: [ '6ab573ec2be7a4bc2b6c04f5' ],
-  productOrderId: [ '6960eac0c941646b7a8b3e68' ],
-  message: 'Order Placed Successfully'
-}
- You have No Orders to show at this time. Please Visit Back Us 

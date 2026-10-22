@@ -1,14 +1,16 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
-
+import { defineConfig } from '@playwright/test';
+require('dotenv').config();
 
 export default defineConfig({
   testDir: './tests',
-  retries : 3,
-  // workers : 10,
+  retries : 0,
+  workers : 4,
+  fullyParallel : true,
   timeout : 100 * 1000,
   expect : {timeout : 5000,},
-  reporter: 'html',
+  //reporter: 'html',
+  reporter: [['list'], ['html']],
   
   use: {
     browserName : 'chromium',
@@ -18,6 +20,7 @@ export default defineConfig({
     // trace : 'on',
     trace : 'retain-on-failure',
     // video : 'retain-on-failure'
+    baseURL: process.env.CLIENT_URL,
   },
 
 });

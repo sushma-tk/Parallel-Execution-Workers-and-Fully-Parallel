@@ -1,20 +1,20 @@
 const {test, expect, request} = require('@playwright/test');
 
-const loginPayload = {userEmail: "sushma.tacholi@gmail.com", userPassword: "Sushma@1234"};
+const loginPayload = {userEmail: process.env.USER_EMAIL, userPassword: process.env.USER_PASSWORD};
 const orderPayload = {orders: [{country: "India", productOrderedId: "6960eac0c941646b7a8b3e68"}]};
 let token;
 let orderId;
 
 test.beforeAll(async () => {
-    const apiContext = await request.newContext();
-    const loginresponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", {data: loginPayload});
+    const apiContext = await request.newContext({ baseURL: process.env.CLIENT_URL });
+    const loginresponse = await apiContext.post("/api/ecom/auth/login", {data: loginPayload});
     expect(loginresponse.ok()).toBeTruthy();
     const responseJson = await loginresponse.json();
     token = responseJson.token;
-    console.log(token);
+    // console.log(token);
 
     // add to cart 
-    const orderResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order", {
+    const orderResponse = await apiContext.post("/api/ecom/order/create-order", {
         data: orderPayload,
         headers: {
             'Authorization': token,
@@ -39,16 +39,17 @@ test.beforeAll(async () => {
 
 test('test', async ({browser})=>
 {
+    console.log(`START | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
     const context = await browser.newContext();
     const page= await context.newPage();
 
     const titles = page.locator(".card-body b");
 
-    page.addInitScript(value => {
+    await page.addInitScript(value => {
         window.localStorage.setItem('token', value);
     }, token);
     
-    await page.goto("https://rahulshettyacademy.com/client/#/auth/login"); // now it will take you directly inside page
+    await page.goto("/client/#/auth/login"); // now it will take you directly inside page
 
     await page.waitForLoadState('domcontentloaded');
 
@@ -70,9 +71,6 @@ test('test', async ({browser})=>
     await page.pause();
     expect(orderId.includes(orderIdDetails)).toBeTruthy();
 
+    console.log(`END   | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
 }
 );
-
-
-
-

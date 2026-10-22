@@ -2,7 +2,8 @@ const {test, expect} = require('@playwright/test');
 
 // test.describe.configure({mode : 'parallel'})
 test('Browser context test', async ({browser})=>
-{
+{   
+    console.log(`START | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
     const context = await browser.newContext();
     const page= await context.newPage();
 
@@ -11,9 +12,9 @@ test('Browser context test', async ({browser})=>
     const signIn = page.locator("#signInBtn");
     const cardTitles = page.locator(".card-body a");
 
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await page.goto("/loginpagePractise/");
     console.log(await page.title());
-    await userName.fill("rahulshettyacademy");
+    await userName.fill(process.env.PRACTICE_USERNAME);
     await password.fill("Password12");
     await signIn.click();
 
@@ -21,8 +22,8 @@ test('Browser context test', async ({browser})=>
     await expect(page.locator("[style *= 'block']")).toContainText("Incorrect")
 
     // login again 
-    await userName.fill("rahulshettyacademy");
-    await password.fill("Learning@830$3mK2");
+    await userName.fill(process.env.PRACTICE_USERNAME);
+    await password.fill(process.env.PRACTICE_PASSWORD);
     await signIn.click();
     // only 1st title
     // console.log(await cardTitles.nth(0).textContent());
@@ -31,20 +32,24 @@ test('Browser context test', async ({browser})=>
     const allTitles = await cardTitles.allTextContents();
     console.log(allTitles);
 
+    console.log(`END   | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
 });
 
 
 test('page test', async ({page})=>
 {
-    await page.goto("https://google.com/");
+    console.log(`START | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
+    await page.goto(process.env.GOOGLE_URL);
     console.log(await page.title());
     await expect(page).toHaveTitle("Google");
 
+    console.log(`END   | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
 });
 
 
 test('UI controls', async ({browser})=>
 {
+    console.log(`START | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
     const context = await browser.newContext();
     const page = await context.newPage();
     const userName = page.locator("#username");
@@ -55,9 +60,9 @@ test('UI controls', async ({browser})=>
     const checkbox = page.locator("#terms");
     const documentLink = page.locator("[href*='documents-request']");
 
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-     await userName.fill("rahulshettyacademy");
-    await password.fill("Learning@830$3mK2");
+    await page.goto("/loginpagePractise/");
+     await userName.fill(process.env.PRACTICE_USERNAME);
+    await password.fill(process.env.PRACTICE_PASSWORD);
 
     await userBtn.nth(1).click();
     await page.locator("#okayBtn").click();
@@ -80,14 +85,16 @@ test('UI controls', async ({browser})=>
     //await signIn.click();
 
     
+    console.log(`END   | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
 });
 
 
 test("Child window test", async ({browser})=>
 {
+    console.log(`START | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await page.goto("/loginpagePractise/");
     const userName = page.locator("#username");
     const documentLink = page.locator("[href*='documents-request']");
 
@@ -106,4 +113,5 @@ test("Child window test", async ({browser})=>
     await userName.fill(domain);
     console.log(await userName.inputValue());
 
+    console.log(`END   | ${test.info().title} | worker ${test.info().workerIndex} | ${new Date().toLocaleTimeString()}`);
 });
